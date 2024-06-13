@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Library {
     // Add the missing implementation to this class
     private String address;
     private int size;
-    private Book[] books = new Book[100];
+    private ArrayList<Book> books;
     private static final String OPENINGHOUR = "Libraries are open daily from 9am to 5pm.";
 
     public static void printOpeningHours() {
@@ -11,10 +13,11 @@ public class Library {
     
     public Library(String address) {
         this.address = address;
+        books = new ArrayList<Book>();
     }
 
-    public void addBook(Book newBook) {
-        books[size++] = newBook;
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 
     public void printAddress() {
@@ -23,7 +26,7 @@ public class Library {
 
     private void borrowBook(String string) {
         for (Book book : books) {
-            if (book == null) break;
+            // if (book == null) break;
             if (book.getTitle().equals(string)) {
                 if (book.isBorrowed()) {
                     System.err.println("Sorry, this book is already borrowed.");
@@ -39,7 +42,7 @@ public class Library {
 
     private void returnBook(String string) {
         for (Book book : books) {
-            if (book == null) break;
+            // if (book == null) break;
             if (book.getTitle().equals(string) && book.isBorrowed()) {
                 book.returned();
                 System.out.printf("You successfully returned %s\n", string);
@@ -50,7 +53,7 @@ public class Library {
     }
 
     private void printAvailableBooks() {
-        if (size==0) {
+        if (this.books.size()==0) {
             System.out.println("No book in catalog");
             return;
         }
