@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Library {
     // Add the missing implementation to this class
     private String address;
-    private int size;
     private ArrayList<Book> books;
     private static final String OPENINGHOUR = "Libraries are open daily from 9am to 5pm.";
 
