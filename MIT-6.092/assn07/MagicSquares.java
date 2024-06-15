@@ -12,10 +12,12 @@ public class MagicSquares {
         boolean isMagic = true;
         int lastSum = -1;
         
+
         // For each line in the file ...
         String line;
         while ((line = reader.readLine()) != null) {
             // ... sum each row of numbers
+            if (line.equals("")) { continue;}
             String[] parts = line.split("\t");
             int sum = 0;
             for (String part : parts) {
